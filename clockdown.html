@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title> Countdown to the next class </title>
+<link rel="stylesheet" type="text/css" href="clockdownstyle.css">
+</head>
+
+<body>
+<span id="countdown">
+
+<script>
+var target_date = new Date("DEC 14, 2015").getTime();
+var days, hours, minutes, seconds;
+
+
+
+var countdown = document.getElementById("countdown");
+setInterval(function () {
+    // code here
+}, 1000);
+
+
+
+setInterval(function () {
+    // code here
+   // find the amount of "seconds" between now and target
+var current_date = new Date().getTime();
+var seconds_left = (target_date - current_date) / 1000;
+days = parseInt(seconds_left / 86400);
+seconds_left = seconds_left % 86400;
+ 
+hours = parseInt(seconds_left / 3600);
+seconds_left = seconds_left % 3600;
+  
+minutes = parseInt(seconds_left / 60);
+seconds = parseInt(seconds_left % 60);
+// format countdown string + set tag value
+countdown.innerHTML = days + "d, " + hours + "h, "
++ minutes + "m, " + seconds + "s"; 
+
+}, 1000);
+
+</script>
+</span>
+
+</body>
+</html>
