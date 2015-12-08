@@ -7,10 +7,17 @@
 </head>
 
 <body>
+<h1> COUNTDOWN TO THE NEXT CLASS !!</h1>
+
+
+<br>
+<h2>
 <span id="countdown">
 
 <script>
-var target_date = new Date("DEC 14, 2015").getTime();
+
+
+var target_date = new Date("Dec 14, 2015 08:15:00").getTime();
 var days, hours, minutes, seconds;
 
 
@@ -36,13 +43,13 @@ seconds_left = seconds_left % 3600;
 minutes = parseInt(seconds_left / 60);
 seconds = parseInt(seconds_left % 60);
 // format countdown string + set tag value
-countdown.innerHTML = days + "d, " + hours + "h, "
-+ minutes + "m, " + seconds + "s"; 
+countdown.innerHTML = days + " days,   " + hours + " hours:  "
++ minutes + " minutes:  " + seconds + " seconds"; 
 
 }, 1000);
 
 </script>
 </span>
-
+</h2>
 </body>
 </html>
