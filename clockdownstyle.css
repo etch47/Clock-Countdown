@@ -1,0 +1,25 @@
+h1
+{
+	     font-family: sans-serif;
+         color:white;
+		 text-align: center;
+}
+body 
+{
+        text-align: center;    
+        background-color: green;
+        font-family: arial;
+        color: white
+        
+}
+
+#colors 
+{
+	color:#0022FF;
+}
+#fonts
+{
+	font-family: arial;
+}
+
+
