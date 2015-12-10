@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Countdown to the next class </title>
+<link rel="stylesheet" type="text/css" href="clockdownstyle.css">
+<head/>
+<body>
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+
+//http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
+function isValidDate(d) {
+if ( Object.prototype.toString.call(d) !== "[object Date]" ) return false;
+return !isNaN(d.getTime());
+}
+
+$("#date").keyup(function() {
+var v = $(this).val();
+v = new Date(v);
+if(isValidDate(v)) {
+console.log(v + " is a date");
+var now = new Date();
+//assume v is a future date
+var difference = v-now;
+//only care if positive
+if(difference > 0) {
+var days, hours, minutes, seconds = 0;
+
+days = Math.floor(difference / (24*60*60*1000));
+
+if(days > 0) {
+difference -= days * (24*60*60*1000);
+}
+
+if(difference > 0) {
+hours = Math.floor(difference / (60*60*1000));
+if(hours > 0) {
+difference -= hours * (60*60*1000);
+}
+}
+
+if(difference > 0) {
+minutes = Math.floor(difference / (60*1000));
+if(minutes > 0) {
+difference -= minutes * (60*1000);
+}
+}
+
+if(difference > 0) {
+seconds = Math.floor(difference / 1000);
+}
+$("#timeleft").html(days + " days, "+ hours + " hours, "+
+minutes + " minutes, " + seconds + " seconds.");
+
+console.log(days + ", "+hours+", "+minutes + ", "+ seconds);
+}
+}
+});
+})
+</script>
+<h2>
+<form id="mainForm">
+ENTER ANY DATE & TIME YOU WANT TO COUNT DOWN TO.<br>
+
+YOUR TIME WILL AUTOMAGICALLY APPEAR BELOW!  
+<input type="text" name="date" id="date"><br/>
+
+</form>
+<h2/>
+<div id="timeleft"></div>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<h1>
+COUNTDOWN TO OXYGEN CLASS !!
+
+<h1/>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+
+var selectedDate;
+var hb;
+
+//http://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
+function isValidDate(d) {
+if ( Object.prototype.toString.call(d) !== "[object Date]" ) return false;
+return !isNaN(d.getTime());
+}
+
+function showDiff() {
+var now = new Date();
+//assume v is a future date
+var difference = selectedDate-now;
+//only care if positive
+if(difference > 0) {
+var days, hours, minutes, seconds = 0;
+
+days = Math.floor(difference / (24*60*60*1000));
+
+if(days > 0) {
+difference -= days * (24*60*60*1000);
+}
+
+if(difference > 0) {
+hours = Math.floor(difference / (60*60*1000));
+if(hours > 0) {
+difference -= hours * (60*60*1000);
+}
+}
+
+if(difference > 0) {
+minutes = Math.floor(difference / (60*1000));
+if(minutes > 0) {
+difference -= minutes * (60*1000);
+}
+}
+
+if(difference > 0) {
+seconds = Math.floor(difference / 1000);
+}
+$("#timeleft").html(days + " days, "+ hours + " hours: "+
+minutes + " minutes: " + seconds + " seconds.");
+
+console.log(days + ", "+hours+", "+minutes + ", "+ seconds);
+}
+}
+
+$("#date").keyup(function() {
+var v = $(this).val();
+v = new Date(v);
+if(isValidDate(v)) {
+console.log(v + " is a date");
+selectedDate = v;
+//clear in case it was run
+clearInterval(hb);
+hb = setInterval(showDiff, 1000);
+} else {
+clearInterval(hb);
+}
+});
+})
+</script>
+
+
+
+<div id="timeleft"></div>
+
+
+</body>
+</html>
